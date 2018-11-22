@@ -191,6 +191,17 @@ function fakeModel (name, defaults, opts) {
 	this.$query = this.$queryInterface.$query.bind(this.$queryInterface);
 }
 
+
+/**
+ * No-op that returns a promise with the current object
+ * 
+ * @instance
+ * @return {Promise<Model>} Self
+ **/
+fakeModel.prototype.save = function () {
+	return Promise.resolve(this);
+};
+
 /**
  * No-op that returns a promise with the current object
  * 
